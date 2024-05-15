@@ -1,4 +1,4 @@
-package id.my.hendisantika.springbootliquibaseexample.entity;
+package id.my.hendisantika.liquibase.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

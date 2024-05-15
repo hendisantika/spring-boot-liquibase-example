@@ -1,10 +1,11 @@
-package id.my.hendisantika.springbootliquibaseexample.entity;
+package id.my.hendisantika.liquibase.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -20,6 +21,7 @@ import java.io.Serializable;
  */
 @Entity(name = "poc")
 @SequenceGenerator(sequenceName = "POC_SEQUENCE", name = "POC_SEQUENCE", initialValue = 1, allocationSize = 1)
+@Data
 public class Poc implements Serializable {
 
     @Id
