@@ -1,11 +1,13 @@
 spring:
-  profiles.active: local
+  profiles:
+    active: local
   application.name: liquibase-example
-liquibase:
-  change-log: classpath:db/db.master.xml
+  liquibase:
+    change-log: classpath:db/db.master.xml
 ---
 spring:
-  profiles: local
+  profiles:
+    active: local
   datasource:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/liquibase
@@ -20,7 +22,8 @@ liquibase:
   contexts: local
 ---
 spring:
-  profiles: dev
+  profiles:
+    active: dev
   datasource:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/liquibase
@@ -35,7 +38,8 @@ liquibase:
   contexts: dev
 ---
 spring:
-  profiles: integration-test
+  profiles:
+    active: integration-test
   datasource:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/liquibase
@@ -48,14 +52,17 @@ liquibase:
   enabled: true
   drop-first: true
   contexts: test
----
-spring:
-  profiles: prod
-  datasource:
-    jndi-name: java:jboss/datasources/pocDS
-  jpa:
-    database: postgresql
-    show-sql: false
-liquibase:
-  enabled: false
-  context: prod
+#---
+#spring:
+#  spring:
+#    config:
+#      activate:
+#        on-profile: prod
+#  datasource:
+#    jndi-name: java:jboss/datasources/pocDS
+#  jpa:
+#    database: postgresql
+#    show-sql: false
+#liquibase:
+#  enabled: false
+#  context: prod
